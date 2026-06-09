@@ -1,3 +1,6 @@
+# Copyright 2025 Tain39
+# Licensed under the Apache License, Version 2.0
+# This file is an original inference script added to the Keras RetinaNet reproduction.
 import os
 import numpy as np
 import cv2
