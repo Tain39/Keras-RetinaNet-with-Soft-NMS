@@ -1,0 +1,12 @@
+Kares-RetinaNet with Soft-NMS
+Copyright 2025 Tain39
+
+本项目基于以下开源项目二次开发：
+原项目：fizyr/keras-retinanet
+原作者：Fizyr
+原许可证：Apache License 2.0
+原项目地址：https://github.com/fizyr/keras-retinanet
+
+本项目的修改与新增内容：
+1.  替换原生NMS后处理为Soft-NMS算法
+2.  新增推理脚本（infer.py/inference.py），补充原项目缺失的推理功能
