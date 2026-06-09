@@ -49,7 +49,6 @@ def soft_nms(boxes, scores, sigma=0.5, score_thr=0.3):
 
     return np.array(keep, dtype=np.int32)
 
-# ==================== 主程序 ====================
 VOC2007_CLASSES = [
     'aeroplane', 'bicycle', 'bird', 'boat', 'bottle',
     'bus', 'car', 'cat', 'chair', 'cow',
@@ -69,7 +68,7 @@ def main():
     os.makedirs(args.save_path, exist_ok=True)
     model = models.load_model(args.model, backbone_name=args.backbone)
     
-    # 关闭模型自带的 NMS    model.layers[-1].nms = False
+    # 关闭模型自带的 NMS  
 
     for img_name in os.listdir(args.image_dir):
         if not img_name.lower().endswith(('jpg','png','jpeg')):
@@ -83,14 +82,12 @@ def main():
         image = preprocess_image(image)
         image, scale = resize_image(image)
 
-        # 拿到模型原始输出（未经过 NMS）
         boxes, scores, labels = model.predict_on_batch(np.expand_dims(image, axis=0))
         boxes /= scale
         boxes = boxes[0]
         scores = scores[0]
         labels = labels[0]
 
-        # ==================== SOFT-NMS 真正生效 ====================
         keep = soft_nms(boxes, scores, sigma=0.5, score_thr=0.4)
         boxes = boxes[keep]
         scores = scores[keep]
