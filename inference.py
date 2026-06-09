@@ -1,4 +1,6 @@
-# -*- coding: utf-8 -*-
+# Copyright 2025 Tain39
+# Licensed under the Apache License, Version 2.0
+# This file is an original inference script added to the Keras RetinaNet reproduction.
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import warnings
