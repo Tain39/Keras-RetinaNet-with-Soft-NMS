@@ -1,7 +1,7 @@
 # Soft-NMS-Kares-RetinaNet
 Reproduction of Keras RetinaNet and replacing native NMS post processing with Soft-NMS
 
- 尝试复现 Keras RetinaNet.首先，我使用了一个小型且自定义的数据集，其中有 4 张图片用于对权重模型进行后训练，以确定环境是否正确，训练能否进行。当一切正常后，我转向 VOC2007 和 COCO2014 数据集正式训练我的模型。受设备限制，我将batch size设置为 1;对VOC和COCO分别进行了每轮 1000 步和 10000 步训练.
+ 尝试复现 Keras RetinaNet. 首先，我使用了一个小型且自定义的数据集，其中有 4 张图片用于对权重模型进行后训练，以确定环境是否正确，训练能否进行。当一切正常后，我转向 VOC2007 和 COCO2014 数据集正式训练我的模型。受设备限制，我将batch size设置为 1;对VOC和COCO分别进行了每轮 1000 步和 10000 步训练.
  
  另外， Keras RetinaNet 原生的项目文件目录中好像没有包含推理脚本.因此，我编写了一个使用原生 NMS 方法进行后处理的 "infer.py"，以及一个一个使用 Soft-NMS 方法的 "inference.py"。通过引入 Soft-NMS，我发现预测框的重叠得到了减少.
  
